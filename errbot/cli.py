@@ -164,9 +164,7 @@ def main():
             os.mkdir(example_plugin_dir)
 
             with open(os.path.join(base_dir, 'config.py'), 'w') as f:
-                f.write(config_template.render(data_dir=data_dir,
-                                               extra_plugin_dir=extra_plugin_dir,
-                                               log_path=log_path))
+                f.write(config_template.render())
             shutil.copyfile(os.path.join(templates_dir, 'example.plug'),
                             os.path.join(example_plugin_dir, 'example.plug'))
             shutil.copyfile(os.path.join(templates_dir, 'example.py'), os.path.join(example_plugin_dir, 'example.py'))
