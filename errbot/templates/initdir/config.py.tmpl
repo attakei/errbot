@@ -1,4 +1,7 @@
 import logging
+from pathlib import Path
+
+ROOT = Path(__file__).parent
 
 # This is a minimal configuration to get you started with the Text mode.
 # If you want to connect Errbot to chat services, checkout
@@ -7,10 +10,10 @@ import logging
 
 BACKEND = 'Text'  # Errbot will start in text mode (console only mode) and will answer commands from there.
 
-BOT_DATA_DIR = r'{{ data_dir }}'
-BOT_EXTRA_PLUGIN_DIR = r'{{ extra_plugin_dir }}'
+BOT_DATA_DIR = ROOT / '{{ data_dir|basename }}'
+BOT_EXTRA_PLUGIN_DIR = ROOT / '{{ extra_plugin_dir|basename }}'
 
-BOT_LOG_FILE = r'{{ log_path }}'
+BOT_LOG_FILE = ROOT / '{{ log_path|basename }}'
 BOT_LOG_LEVEL = logging.DEBUG
 
 BOT_ADMINS = ('@CHANGE_ME', )  # !! Don't leave that to "@CHANGE_ME" if you connect your errbot to a chat system !!
